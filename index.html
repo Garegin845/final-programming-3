@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <script src="script.js"></script>
+</head>
+<style type="text/css">
+    ul li {
+      list-style: none;
+      display: inline-block;
+    }
+
+    body {
+      background: #148ccd;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    canvas {
+      margin-left: 30%;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      text-shadow: black 3px 5px 8px;
+    }
+
+    table {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid rgb(179, 179, 179);
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .grass {
+      background-color: #49cd14;
+    }
+
+    .Hakatuyn {
+      background-color: #abcd14;
+    }
+
+    .grassEater {
+      background-color: brown;
+    }
+
+    .tuyn {
+      background-color: white;
+    }
+
+    
+
+    .predator {
+      background-color: #96849b;
+    }
+
+    * {
+      font-family: sans-serif;
+    }
+
+    button {
+
+      position: relative;
+      width: 100px;
+      height: 50px;
+      padding: auto;
+      text-align: center;
+
+      font-weight: bold;
+      border: 2px solid #3eff37;
+      background-color: transparent;
+      color: #000;
+      cursor: pointer;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    span {
+      background-color: #3eff37;
+      height: 100%;
+      width: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: 0.5s;
+    }
+
+    button:hover span {
+      width: 100%;
+    }
+    canvas{
+    margin-left: 33%;
+}
+.summer,
+.winter,
+.spring,
+.autumn{
+    width: 100px;
+    height: 30px;border-radius: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.summer{
+    background: linear-gradient(50deg,coral,rgb(255, 166, 34));
+}
+.winter{
+    background: linear-gradient(50deg,rgb(142, 216, 250),rgb(34, 167, 255));
+}
+.spring{
+    background: linear-gradient(50deg,rgb(46, 172, 67),rgb(255, 38, 0));
+}
+.autumn{
+    background: linear-gradient(50deg,rgb(175, 196, 241),rgb(235, 220, 155));
+}
+
+.summer:hover{
+    opacity: 0.7;
+    color: white;
+}
+.winter:hover{
+    opacity: 0.7;
+    color: white;
+}
+.spring:hover{
+    opacity: 0.7;
+    color: white;
+}
+.autumn:hover{
+    opacity: 0.7;
+    color: white;
+}
+.container{
+    width: 1200px;
+}
+</style>
+<body>
+    <div class="container">
+    
+            <li>
+                <button class="summer" id="summerid"><span>Summer</span></button>
+              </li>
+              <li>
+                <button class="winter" id="winterid"><span>Winter</span></button>
+              </li>
+              <li>
+                <button class="spring" id="springid"><span>Spring</span></button>
+              </li>
+              <li>
+                <button class="autumn" id="autumnid"><span>Autumn</span></button>
+              </li>
+        </div>
+        <h1>Game Of Life</h1>
+
+        <button type="button" onclick="sayHello()">
+          <span></span>Info
+          <script>
+      
+            function sayHello() {
+              alert(" Hello, I'm Garegin Hakobyan, I'm 14 years old, I'm the creator of this game. ")
+            }
+          </script>
+        </button>
+        <a style="padding: 0; width: 100px;" href="index.html">
+          <button><span></span>Game Restart</button>
+        </a>
+      
+        <table>
+          <tr>
+            <th class="grass">Grass ☘️</th>
+            <th class="grassEater">Grass Eater 🐄</th>
+            <th class="predator">Predator 🦕</th>
+  
+           
+          </tr>
+          <tr>
+            <td class="grass">Խոտ: բազմանում է ազատ մատրիքսների վրա</td>
+            <td class="grassEater">Խոտակեր: Կարող է շարժվել ազատ մատրիքսների վրա,
+              ունի իր սեփական Էներգիա, որը աճում է Խոտ ուտելու հաշվին և
+              նվազում է շարժման ժամանակ</td>
+            <td class="predator">Ամենակեր: Կարող է շարժվել ազատ մատրիքսների վրա,
+              ունի իր սեփական Էներգիա, որը աճում է Խոտ և Խոտակեր ուտելու հաշվին և
+              նվազում է շարժման ժամանակ</td>
+          
+
+          </tr>
+        </table>
+ 
+</body>
+
+</html>
